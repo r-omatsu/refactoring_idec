@@ -1,24 +1,3 @@
-class PerformanceCalculator {
-  constructor(aPerformance, aPlay) {
-    this.performance = aPerformance;
-    this.play = aPlay;
-  }
-
-  get amount() {
-    throw "想定外の呼び出し";
-  }
-
-  get volumeCredits() {
-    let result = 0;
-    result += Math.max(this.performance.audience - 30, 0);
-    if ("comedy" === this.play.type) {
-      result += Math.floor(this.performance.audience / 5);
-    }
-
-    return result;
-  }
-}
-
 export default function createStatementData(invoice, plays) {
   const result = {};
   result.customer = invoice.customer;
@@ -62,6 +41,27 @@ function createPerformanceCalculator(aPerformance, aPlay) {
       return new ComedyCalculator(aPerformance, aPlay);
     default:
       throw new Error(`未知の演劇の種類: ${aPlay.type}`);
+  }
+}
+
+class PerformanceCalculator {
+  constructor(aPerformance, aPlay) {
+    this.performance = aPerformance;
+    this.play = aPlay;
+  }
+
+  get amount() {
+    throw "想定外の呼び出し";
+  }
+
+  get volumeCredits() {
+    let result = 0;
+    result += Math.max(this.performance.audience - 30, 0);
+    if ("comedy" === this.play.type) {
+      result += Math.floor(this.performance.audience / 5);
+    }
+
+    return result;
   }
 }
 

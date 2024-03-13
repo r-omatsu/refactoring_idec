@@ -9,6 +9,11 @@ describe("province", function () {
     // フィクスチャの属性（shortfallの戻り値）を検査
     assert.equal(asia.shortfall, 5);
   });
+
+  it("profit", function () {
+    const asia = new Province(sampleProvinceData());
+    assert.equal(asia.profit, 230);
+  });
 });
 
 class Province {

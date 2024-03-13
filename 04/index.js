@@ -19,10 +19,32 @@ describe("province", function () {
     assert.equal(asia.profit, 230);
   });
 
+  // 生産量のテスト
   it("change production", function () {
     asia.producers[0].production = 20;
     assert.equal(asia.shortfall, -6);
     assert.equal(asia.profit, 292);
+  });
+});
+
+describe("no producers", function () {
+  let noProducers;
+  beforeEach(function () {
+    const data = {
+      name: "No producers",
+      producers: [],
+      demand: 30,
+      price: 20,
+    };
+    noProducers = new Province(data);
+  });
+
+  it("shortfall", function () {
+    assert.equal(noProducers.shortfall, 30);
+  });
+
+  it("profit", function () {
+    assert.equal(noProducers.profit, 0);
   });
 });
 

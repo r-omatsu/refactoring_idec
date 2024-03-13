@@ -18,6 +18,12 @@ describe("province", function () {
   it("profit", function () {
     assert.equal(asia.profit, 230);
   });
+
+  it("change production", function () {
+    asia.producers[0].production = 20;
+    assert.equal(asia.shortfall, -6);
+    assert.equal(asia.profit, 292);
+  });
 });
 
 class Province {

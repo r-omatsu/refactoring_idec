@@ -1,8 +1,12 @@
 import assert from "assert";
 
+// テストブロック
 describe("province", function () {
+  // 個別のテスト
   it("shortfall", function () {
+    // フィクスチャ（テストに必要なオブジェクト）を設定
     const asia = new Province(sampleProvinceData());
+    // フィクスチャの属性（shortfallの戻り値）を検査
     assert.equal(asia.shortfall, 5);
   });
 });

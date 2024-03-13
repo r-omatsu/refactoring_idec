@@ -1,3 +1,12 @@
+import assert from "assert";
+
+describe("province", function () {
+  it("shortfall", function () {
+    const asia = new Province(sampleProvinceData());
+    assert.equal(asia.shortfall, 5);
+  });
+});
+
 class Province {
   constructor(doc) {
     this._name = doc.name;
@@ -47,6 +56,9 @@ class Province {
   }
   get producers() {
     return this._producers.slice();
+  }
+  get totalProduction() {
+    return this._totalProduction;
   }
   set totalProduction(arg) {
     return (this._totalProduction = arg);

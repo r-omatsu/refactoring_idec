@@ -1,2 +1,21 @@
 # refactoring_idec
-リファクタリング 既存のコードを安全に改善する　学習用リポジトリ
+
+## Mochaによるテスト
+
+- Mochaのインストール
+
+  ```bash
+  npm i
+  ```
+
+- Mochaの実行
+
+  ```bash
+  npx mocha {ディレクトリ}
+  ```
+
+  - ex.
+
+    ```bash
+    npx mocha 04/index.js
+    ```

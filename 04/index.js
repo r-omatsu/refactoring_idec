@@ -25,6 +25,20 @@ describe("province", function () {
     assert.equal(asia.shortfall, -6);
     assert.equal(asia.profit, 292);
   });
+
+  // 境界値のテスト：数値が0のとき
+  it("zero demand", function () {
+    asia.demand = 0;
+    assert.equal(asia.shortfall, -25);
+    assert.equal(asia.profit, 0);
+  });
+
+  // 境界値のテスト：数値が負のとき
+  it("negative demand", function () {
+    asia.demand = -1;
+    assert.equal(asia.shortfall, -26);
+    assert.equal(asia.profit, -10);
+  });
 });
 
 describe("no producers", function () {
